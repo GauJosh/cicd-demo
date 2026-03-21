@@ -27,7 +27,7 @@ jobs:
         run: |
            python app.py
       
-      - name: Intentionally failing step
+      - name: Run tests
         run: |
           echo "Running tests..."
           python tests/test_app.py
