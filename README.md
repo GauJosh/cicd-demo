@@ -1,2 +1,3 @@
-# cicd-demo
-This repo is to test devops-genai agent
+# cicd-failure-demo
+
+Small test repository used to generate realistic CI/CD failures for analysis by the `devops-genai` platform.
