@@ -26,8 +26,15 @@ jobs:
       - name: Run app
         run: |
            python app.py
-      
-      - name: Run tests
+
+# Failure 1: The app.py file is missing, which will cause the "Run app" step to fail.      
+      # - name: Run tests
+      #   run: |
+      #     echo "Running tests..."
+      #     python tests/test_app.py
+
+# Failure 2: The Dockerfile references a non-existent base image "test:1.2.3", which will cause the "Docker build" step to fail.
+      - name: Docker build
         run: |
-          echo "Running tests..."
-          python tests/test_app.py
+          echo "Building Docker image..."
+          docker build -t cicd-demo:latest .
