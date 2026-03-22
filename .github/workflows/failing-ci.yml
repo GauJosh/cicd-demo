@@ -46,15 +46,15 @@ jobs:
       #     pip install -r requirements-prod.txt
 
 # Failure 4: The requirements.txt file contains an invalid package version "requests==999.999.999", which will cause the "Install dependencies" step to fail.
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      # - name: Install dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install -r requirements.txt
 
 # Failure 5: Python syntax error in app.py file, which will cause the "Run app" step to fail.
-      # - name: Run app
-      #   run: |
-      #      python app.py
+      - name: Run app
+        run: |
+           python app.py
 
 # Failure 6: Missing dockerfile, which will cause the "Docker build" step to fail.
       # - name: Docker build
