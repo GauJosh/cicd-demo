@@ -34,7 +34,42 @@ jobs:
       #     python tests/test_app.py
 
 # Failure 2: The Dockerfile references a non-existent base image "test:1.2.3", which will cause the "Docker build" step to fail.
-      - name: Docker build
+      # - name: Docker build
+      #   run: |
+      #     echo "Building Docker image..."
+      #     docker build -t cicd-demo:latest .
+
+# Failure 3: Requirements-prod.txt file is missing, which will cause the "Install dependencies" step to fail.
+      - name: Install dependencies
         run: |
-          echo "Building Docker image..."
-          docker build -t cicd-demo:latest .
+          python -m pip install --upgrade pip
+          pip install -r requirements-prod.txt
+
+# Failure 4: The requirements.txt file contains an invalid package version "requests==999.999.999", which will cause the "Install dependencies" step to fail.
+      # - name: Install dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install -r requirements.txt
+
+# Failure 5: Python syntax error in app.py file, which will cause the "Run app" step to fail.
+      # - name: Run app
+      #   run: |
+      #      python app.py
+
+# Failure 6: Missing dockerfile, which will cause the "Docker build" step to fail.
+      # - name: Docker build
+      #   run: |
+      #     echo "Building Docker image..."
+      #     docker build -f Dockerfile.prod -t cicd-demo:latest .
+
+# Failure 7: Docker copy failure due to missing files, which will cause the "Docker build" step to fail.
+      # - name: Docker build
+      #   run: |
+      #     echo "Building Docker image..."
+      #     docker build -t cicd-demo:latest .
+
+# Failure 8: Failing lint step due to missing tools, which will cause the "Lint code" step to fail.
+      # - name: Lint code
+      #   run: |
+      #     echo "Linting code..."
+      #     flake8 .
