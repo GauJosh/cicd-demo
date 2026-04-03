@@ -29,10 +29,10 @@ jobs:
            python app.py
 
 # Failure 1: The app.py file is missing, which will cause the "Run app" step to fail.      
-      # - name: Run tests
-      #   run: |
-      #     echo "Running tests..."
-      #     python tests/test_app.py
+      - name: Run tests
+        run: |
+          echo "Running tests..."
+          python tests/test_app.py
 
 # Failure 2: The Dockerfile references a non-existent base image "test:1.2.3", which will cause the "Docker build" step to fail.
       # - name: Docker build
@@ -64,7 +64,7 @@ jobs:
       #     docker build -t cicd-demo:latest .
 
 # Failure 8: Failing lint step due to missing tools, which will cause the "Lint code" step to fail.
-      - name: Lint code
-        run: |
-          echo "Linting code..."
-          flake8 .
+      # - name: Lint code
+      #   run: |
+      #     echo "Linting code..."
+      #     flake8 .
