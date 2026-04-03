@@ -52,16 +52,16 @@ jobs:
       #      python app.py
 
 # Failure 6: Missing dockerfile, which will cause the "Docker build" step to fail.
-      - name: Docker build
-        run: |
-          echo "Building Docker image..."
-          docker build -f Dockerfile.prod -t cicd-demo:latest .
-
-# Failure 7: Docker copy failure due to missing files, which will cause the "Docker build" step to fail.
       # - name: Docker build
       #   run: |
       #     echo "Building Docker image..."
-      #     docker build -t cicd-demo:latest .
+      #     docker build -f Dockerfile.prod -t cicd-demo:latest .
+
+# Failure 7: Docker copy failure due to missing files, which will cause the "Docker build" step to fail.
+      - name: Docker build
+        run: |
+          echo "Building Docker image..."
+          docker build -t cicd-demo:latest .
 
 # Failure 8: Failing lint step due to missing tools, which will cause the "Lint code" step to fail.
       # - name: Lint code
