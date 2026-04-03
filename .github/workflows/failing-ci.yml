@@ -34,16 +34,16 @@ jobs:
       #     python tests/test_app.py
 
 # Failure 2: The Dockerfile references a non-existent base image "test:1.2.3", which will cause the "Docker build" step to fail.
-      - name: Docker build
-        run: |
-          echo "Building Docker image..."
-          docker build -t cicd-demo:latest .
+      # - name: Docker build
+      #   run: |
+      #     echo "Building Docker image..."
+      #     docker build -t cicd-demo:latest .
 
 # Failure 3: Requirements-prod.txt file is missing, which will cause the "Install dependencies" step to fail.
-      # - name: Install dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install -r requirements-prod.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-prod.txt
 
 # Failure 4: The requirements.txt file contains an invalid package version "requests==999.999.999", which will cause the "Install dependencies" step to fail.
       # - name: Install dependencies
