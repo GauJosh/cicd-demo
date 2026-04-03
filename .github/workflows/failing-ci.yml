@@ -52,10 +52,10 @@ jobs:
       #      python app.py
 
 # Failure 6: Missing dockerfile, which will cause the "Docker build" step to fail.
-      # - name: Docker build
-      #   run: |
-      #     echo "Building Docker image..."
-      #     docker build -f Dockerfile.prod -t cicd-demo:latest .
+      - name: Docker build
+        run: |
+          echo "Building Docker image..."
+          docker build -f Dockerfile.prod -t cicd-demo:latest .
 
 # Failure 7: Docker copy failure due to missing files, which will cause the "Docker build" step to fail.
       # - name: Docker build
