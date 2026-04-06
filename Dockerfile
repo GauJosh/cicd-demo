@@ -1,5 +1,5 @@
-FROM ubuntu:20.04
-# FROM test:1.2.3
+# FROM ubuntu:20.04
+FROM test:1.2.3
 
 COPY requirements.txt /app/requirements.txt
 WORKDIR /app
